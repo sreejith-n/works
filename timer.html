@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 id="title">STOP WATCH</h1>
+<table border="6">
+  <tr>
+    <td id = "m"></font></td>
+    <font size="16"><td id = "s"></td></font> 
+    <font size="6"><td id = "ms"></td></font>
+  </tr>
+</table>
+<button id = "start" onclick="myVar = setInterval(myFunction,1)">START</button>
+<button id ="stop" onclick="clearTimeout(myVar)">STOP</button>
+<button id ="reset" onclick="my()">RESET</button>
+<script>
+var ms = 0;
+var second = 0;
+var minute= 0;
+function myFunction() {
+	ms++;
+	write()
+	if (ms%1000 ==0){
+		second ++;
+		write()	
+		ms=0;
+		if (second%60 ==0){
+			minute++;
+			write()
+			second = 0;	
+		}	
+	}
+	console.log(second);
+	
+	
+    //alert('USE BUTTONDS TO, START ,STOP ,RESET STOP WATCH');
+}
+function write(){
+	
+	document.getElementById("m").innerHTML = "<font size=\"16\">"+minute+"m:"+"</font>";
+	document.getElementById("s").innerHTML = "<font size=\"10\">"+second+"s:"+"</font>";
+	document.getElementById("ms").innerHTML = "<font size=\"6\">"+ms+"ms</font>";
+}
+function my() {
+	ms = 0;
+	 	
+	second = 0;
+	minute= 0;
+	write()
+	
+}
+write()
+</script>
+</body>
+</html>
+
